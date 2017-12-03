@@ -1,0 +1,16 @@
+.code {
+    background: lightgray;
+    border-radius: 2.5px;
+    padding: 1px 5px;
+
+    width: auto;
+    display: inline;
+    font-size: 95%;
+    font-family: monospace;
+
+}
+
+.passwordRules {
+    line-height: 135%;
+    padding: 15px;
+}

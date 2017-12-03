@@ -1,0 +1,32 @@
+{
+  "name": "my-first-react",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:8080",
+  "dependencies": {
+    "i": "^0.3.6",
+    "install": "^0.10.1",
+    "material-ui": "^1.0.0-beta.21",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "npm": "^5.5.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.1.1",
+    "react-addons-shallow-compare": "^15",
+    "react-autosuggest": "^9.3.2",
+    "react-avatar": "^2.4.0",
+    "react-dom": "^16.1.1",
+    "react-form-validator-core": "^0.1.1",
+    "react-material-ui-form-validator": "^2.0.0-beta.2",
+    "react-query-params": "^1.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17",
+    "typeface-roboto": "^0.0.45",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start --history-api-fallback",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
