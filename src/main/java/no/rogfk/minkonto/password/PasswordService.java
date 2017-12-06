@@ -6,22 +6,13 @@ import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.support.LdapNameBuilder;
 import org.springframework.stereotype.Service;
 
-import javax.naming.directory.SearchControls;
-
 @Service
 public class PasswordService {
-
-    private final SearchControls searchControls;
 
     @Autowired
     private LdapTemplate ldapTemplate;
 
-    public PasswordService() {
-        searchControls = new SearchControls();
-        searchControls.setSearchScope(SearchControls.SUBTREE_SCOPE);
-    }
-
-    public boolean setPassword(PasswordUser passwordUser) {
+    public boolean updatePassword(PasswordUser passwordUser) {
         if (passwordUserExists(passwordUser)) {
             try {
                 ldapTemplate.update(passwordUser);
