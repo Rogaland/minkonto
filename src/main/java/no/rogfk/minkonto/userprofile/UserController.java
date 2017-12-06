@@ -16,11 +16,10 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    UserProfileService userProfileService;
+    private UserProfileService userProfileService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public UserProfile getUser(@RequestHeader(value = "x-dn") String dn) {
-
         return userProfileService.getUserProfile(dn);
     }
 

@@ -27,16 +27,16 @@ public class PasswordService {
     public PasswordUser getPasswordUser(String dn) {
         try {
             return ldapTemplate.findByDn(LdapNameBuilder.newInstance(dn).build(), PasswordUser.class);
-        } catch (org.springframework.ldap.NamingException e) {
+        } catch (NamingException e) {
             return null;
         }
     }
 
-    public boolean passwordUserExists(PasswordUser passwordUser) {
+    private boolean passwordUserExists(PasswordUser passwordUser) {
         try {
             ldapTemplate.lookup(LdapNameBuilder.newInstance(passwordUser.getDn()).build());
             return true;
-        } catch (org.springframework.ldap.NamingException e) {
+        } catch (NamingException e) {
             return false;
         }
     }
