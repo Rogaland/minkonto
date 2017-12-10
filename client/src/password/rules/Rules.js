@@ -6,9 +6,7 @@ import Paper from 'material-ui/Paper';
 
 class Rules extends Component {
 
-
     render() {
-
         return (
             <Paper className="passwordRules" elevation={20}>
                 <Typography type="title">

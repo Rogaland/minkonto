@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Renders Header component 1`] = `
+<div
+  className="header"
+>
+  <img
+    alt=""
+    src="rogfk_liggende_farger.jpg"
+  />
+</div>
+`;

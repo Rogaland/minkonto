@@ -13,7 +13,6 @@ import Button from 'material-ui/Button';
 import Snackbar from 'material-ui/Snackbar';
 import CloseIcon from 'material-ui-icons/Close';
 import IconButton from 'material-ui/IconButton';
-import 'whatwg-fetch';
 import {CircularProgress} from 'material-ui/Progress';
 import {Grid, Typography, withStyles} from "material-ui";
 import PropTypes from 'prop-types';
@@ -72,10 +71,6 @@ class Employee extends Component {
             updateStatus: '',
             showProgress: true
         };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.updateProfile = this.updateProfile.bind(this);
-
     }
 
     componentDidMount() {
@@ -233,7 +228,7 @@ class Employee extends Component {
 
                 </Card>
 
-                < Snackbar
+                <Snackbar
                     anchorOrigin={
                         {
                             vertical: 'top',

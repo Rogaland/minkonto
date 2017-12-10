@@ -16,7 +16,6 @@ import {withStyles} from 'material-ui/styles';
 import Rules from "./rules/Rules";
 import Snackbar from 'material-ui/Snackbar';
 import CloseIcon from 'material-ui-icons/Close';
-import 'whatwg-fetch'
 import {CircularProgress} from 'material-ui/Progress';
 import ReactQueryParams from 'react-query-params';
 
@@ -64,10 +63,6 @@ class Password extends ReactQueryParams {
             showProgress: false,
             redirect: ''
         };
-
-        this.handleClickShowNewPassword = this.handleClickShowNewPassword.bind(this);
-        this.handleExpandClick = this.handleExpandClick.bind(this);
-        this.isFormValid = this.isFormValid.bind(this);
     }
 
     onChangeNewPassword = (event) => {
@@ -93,7 +88,6 @@ class Password extends ReactQueryParams {
     };
 
     isFormValid = () => {
-        console.log("isFormValid");
         return (this.state.newPasswordValid && this.state.newPassword.length > 0 && this.state.repeatPasswordValid && this.state.repeatPassword.length > 0)
     }
 
@@ -114,18 +108,13 @@ class Password extends ReactQueryParams {
     onDirtyRepeatPassword = (event) => {
         this.setState({repeatPasswordValid: false});
     };
-    /*
-        handleSubmit() {
-            console.log("Update password");
-        }
-    */
+
     handleMouseDownPassword = event => {
         event.preventDefault();
     };
 
     handleClickShowNewPassword = () => {
         this.setState({showNewPassword: !this.state.showNewPassword});
-        console.log("showNewPassword");
     };
 
     updatePassword = () => {
@@ -164,23 +153,19 @@ class Password extends ReactQueryParams {
             .catch((error) => {
                 error.response.json().then((json) => {
                     this.showPasswordUpdateStatus(json.status);
-
                 });
             });
     };
 
     handleClickShowRepeatPassword = () => {
         this.setState({showRepeatPassword: !this.state.showRepeatPassword});
-        console.log("showRepeatPassword");
     };
 
     handleExpandClick = () => {
         this.setState({expanded: !this.state.expanded});
-        console.log("handleExpandClick");
     };
 
     showPasswordUpdateStatus = (updateStatus) => {
-
         this.setState({
             updateStatus: updateStatus,
             passwordUpdateNotify: true,
@@ -208,7 +193,6 @@ class Password extends ReactQueryParams {
     }
 
     handleRequestClose = (event, reason) => {
-
         if (reason === 'clickaway') {
             return;
         }
@@ -218,7 +202,6 @@ class Password extends ReactQueryParams {
         if (this.state.redirect !== '') {
             window.location = this.state.redirect;
         }
-
     };
 
     render() {

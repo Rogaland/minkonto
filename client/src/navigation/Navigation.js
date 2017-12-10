@@ -34,7 +34,6 @@ class Navigation extends React.Component {
         const {classes} = this.props;
         const {value} = this.state;
 
-
         return (
             <div className={classes.root}>
                 <AppBar position="static">
@@ -42,7 +41,6 @@ class Navigation extends React.Component {
                         <Tab label="Min profil" component={Link} to="/me"/>
                         <Tab label="Passord" component={Link} to="/password"/>
                     </Tabs>
-
                 </AppBar>
             </div>
         )

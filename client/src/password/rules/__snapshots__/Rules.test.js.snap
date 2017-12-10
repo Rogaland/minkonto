@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rules Renders Rules component 1`] = `
+<div
+  className="MuiPaper-root-1 MuiPaper-shadow20-23 MuiPaper-rounded-2 passwordRules"
+>
+  <h2
+    className="MuiTypography-root-28 MuiTypography-title-34"
+  >
+    Passord regler
+  </h2>
+  <ul>
+    <li>
+      Passordet må være 
+      <div
+        className="code"
+      >
+        8-16 tegn
+      </div>
+    </li>
+    <li>
+      Passordet må inneholde karakterer fra minst 3 av kategoriene under:
+    </li>
+    <ul>
+      <li>
+        Store bokstaver 
+        <p
+          className="code"
+        >
+          A-Z
+        </p>
+      </li>
+      <li>
+        Små bokstaver 
+        <p
+          className="code"
+        >
+          a-z
+        </p>
+      </li>
+      <li>
+        Tall 
+        <p
+          className="code"
+        >
+          0-9
+        </p>
+      </li>
+      <li>
+        Spesialtegn  
+        <div
+          className="code"
+        >
+          ~ ! @ # $ % ^ & * _ - + = \` | \\ ( ) { } [ ] : ; " ' &lt; &gt; , . ? /
+        </div>
+      </li>
+    </ul>
+    <li>
+      Kan ikke inneholde:
+    </li>
+    <ul>
+      <li>
+        <p
+          className="code"
+        >
+          brukernavn
+        </p>
+      </li>
+      <li>
+        <p
+          className="code"
+        >
+          fornavn
+        </p>
+      </li>
+      <li>
+        <p
+          className="code"
+        >
+          etternavn
+        </p>
+      </li>
+    </ul>
+    <li>
+      Tillegg:
+    </li>
+    <ul>
+      <li>
+        De 
+        <p
+          className="code"
+        >
+          12 siste passord
+        </p>
+        lagres i historien og kan ikke brukes.
+      </li>
+      <li>
+        Passordet må endres hver 
+        <p
+          className="code"
+        >
+          90
+        </p>
+         dag.
+      </li>
+      <li>
+        Passordet kan endres etter 
+        <p
+          className="code"
+        >
+          2
+        </p>
+         dager.
+      </li>
+    </ul>
+  </ul>
+</div>
+`;

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import './Account.css';
-import 'whatwg-fetch';
 import Employee from "./employee/Employee";
 import Student from "./student/Student";
 import Other from "./other/Other";
@@ -18,7 +17,7 @@ class Account extends Component {
 
     }
 
-    componentDidMount = () => {
+    componentDidMount() {
         fetch('/api/userprofile',
             {
                 method: "GET",
@@ -54,33 +53,7 @@ class Account extends Component {
             );
     }
 
-    /*
-    handleChange = (event) => {
-        this.setState({
-                [event.target.name]: event.target.value
-            }
-        )
-    }
-
-    updateProfile = () => {
-        console.log(this.state);
-
-        fetch('/api/userprofile',
-            {
-                method: "PUT",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(this.state)
-            });
-
-    }
-    */
-
-
     render() {
-
         if (this.state.role === 'Employee') {
             return (<Employee/>);
         }

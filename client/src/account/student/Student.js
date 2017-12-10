@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 import Card, {CardContent, CardHeader} from 'material-ui/Card';
 import Avatar from 'react-avatar';
-import 'whatwg-fetch';
 import {CircularProgress, Grid, Paper, Typography, withStyles} from "material-ui";
 import PropTypes from 'prop-types';
 
@@ -78,30 +77,6 @@ class Student extends Component {
                 }
             );
     }
-
-    /*
-    handleChange = (event) => {
-        this.setState({
-                [event.target.name]: event.target.value
-            }
-        )
-    }
-
-    updateProfile = () => {
-        console.log(this.state);
-
-        fetch('/api/userprofile',
-            {
-                method: "PUT",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(this.state)
-            });
-
-    }
-*/
 
     render() {
         const {classes} = this.props;

@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation Renders Navigation component 1`] = `
+<div
+  className="Navigation-root-1"
+>
+  <header
+    className="MuiPaper-root-9 MuiPaper-shadow4-15 MuiAppBar-root-2 MuiAppBar-positionStatic-5 MuiAppBar-colorPrimary-7"
+  >
+    <div
+      className="MuiTabs-root-36"
+    >
+      <div
+        className="MuiTabs-flexContainer-37"
+      >
+        <div
+          className="MuiTabs-scrollingContainer-38 MuiTabs-fixed-39"
+          onScroll={[Function]}
+          role="tablist"
+          style={
+            Object {
+              "marginBottom": 0,
+            }
+          }
+        >
+          <div
+            className="MuiTabs-flexContainer-37"
+          >
+            <a
+              aria-selected={true}
+              className="MuiButtonBase-root-59 MuiTab-root-43 MuiTab-rootInherit-51 MuiTab-rootInheritSelected-52"
+              disabled={false}
+              href="/me"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              role="tab"
+              style={undefined}
+              tabIndex={0}
+            >
+              <span
+                className="MuiTab-wrapper-55"
+              >
+                <div
+                  className="MuiTab-labelContainer-56"
+                >
+                  <span
+                    className="MuiTab-label-57"
+                  >
+                    Min profil
+                  </span>
+                </div>
+              </span>
+              <span
+                className="MuiTouchRipple-root-64"
+              />
+            </a>
+            <a
+              aria-selected={false}
+              className="MuiButtonBase-root-59 MuiTab-root-43 MuiTab-rootInherit-51"
+              disabled={false}
+              href="/password"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              role="tab"
+              style={undefined}
+              tabIndex={0}
+            >
+              <span
+                className="MuiTab-wrapper-55"
+              >
+                <div
+                  className="MuiTab-labelContainer-56"
+                >
+                  <span
+                    className="MuiTab-label-57"
+                  >
+                    Passord
+                  </span>
+                </div>
+              </span>
+              <span
+                className="MuiTouchRipple-root-64"
+              />
+            </a>
+          </div>
+          <div
+            className="MuiTabIndicator-root-61 MuiTabIndicator-colorAccent-62"
+            style={
+              Object {
+                "left": 0,
+                "width": 0,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+`;
