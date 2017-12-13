@@ -1,34 +1,37 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.8.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 
+jar {
+    baseName = 'minkonto'
+    version = '0.0.1-SNAPSHOT'
+}
 group = 'no.rogfk'
-version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
-	jcenter()
+    mavenCentral()
+    jcenter()
 }
 
 
 dependencies {
-	compile("com.github.springfox.loader:springfox-loader:1.2.0")
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.ldap:spring-ldap-core:2.3.1.RELEASE')
+    compile("com.github.springfox.loader:springfox-loader:1.2.0")
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.ldap:spring-ldap-core:2.3.1.RELEASE')
 
-	compileOnly('org.projectlombok:lombok')
+    compileOnly('org.projectlombok:lombok')
 
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
