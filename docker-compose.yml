@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  minkonto:
+    image: rogfk/minkonto:latest
+    ports:
+      - "10010:8080"
+    environment:
+      server.context-path: /minkonto
+      TZ: Europe/Oslo
+      springfox.title: MinKonto
+      springfox.version: 1.0.0
+      rfk.ldap.url:
+      rfk.ldap.user:
+      rfk.ldap.password:
+
+    deploy:
+      placement:
+        constraints:
+          - node.role == worker
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+
+

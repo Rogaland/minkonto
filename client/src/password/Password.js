@@ -139,7 +139,8 @@ class Password extends ReactQueryParams {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(user),
+                credentials: 'same-origin'
             })
             .then((response) => {
                 if (response.status === 200) {
@@ -195,7 +196,8 @@ class Password extends ReactQueryParams {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
-                }
+                },
+                credentials: 'same-origin'
             })
             .then((response) => {
                 return response.json();

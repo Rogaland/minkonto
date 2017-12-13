@@ -85,7 +85,8 @@ class Employee extends Component {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
-                }
+                },
+                credentials: 'same-origin'
             })
             .then((response) => {
                 return response.json();
@@ -121,7 +122,8 @@ class Employee extends Component {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(user),
+                credentials: 'same-origin'
             })
             .then((response) => {
                 if (response.statusText === 'OK') {

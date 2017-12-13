@@ -25,7 +25,8 @@ class Account extends Component {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
-                }
+                },
+                credentials: 'same-origin'
             })
             .then((response) => {
                 return response.json();
@@ -42,7 +43,8 @@ class Account extends Component {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
-                }
+                },
+                credentials: 'same-origin'
             })
             .then((response) => {
                 return response.json();
