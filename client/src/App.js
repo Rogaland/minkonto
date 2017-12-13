@@ -43,7 +43,6 @@ class App extends React.Component {
                         <Navigation/>
                         <Route exact path='/me' component={Account}/>
                         <Route path='/password' component={Password}/>
-                        <Redirect from="/" to="/me"/>
                     </div>
                 </BrowserRouter>
             </MuiThemeProvider>
