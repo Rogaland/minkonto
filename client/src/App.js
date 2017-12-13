@@ -7,7 +7,7 @@ import Navigation from "./navigation/Navigation";
 import {createMuiTheme, MuiThemeProvider, withStyles} from "material-ui";
 
 import {blue, grey} from 'material-ui/colors';
-import {BrowserRouter, Redirect, Route} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 import Account from "./account/Account";
 import Password from "./password/Password";
 

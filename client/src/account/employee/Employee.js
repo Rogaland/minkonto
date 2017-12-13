@@ -126,10 +126,12 @@ class Employee extends Component {
                 credentials: 'same-origin'
             })
             .then((response) => {
-                if (response.statusText === 'OK') {
+                console.log(response);
+                if (response.status === 200) {
                     this.setState({updateStatus: 'Profilen din ble oppdatert.'});
                 }
                 else {
+                    console.log(response);
                     this.setState({updateStatus: 'Et problem oppstod. Profilen din ble IKKE oppdatert.'});
                 }
                 this.setState({profileUpdateNofify: true});
