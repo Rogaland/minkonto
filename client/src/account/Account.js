@@ -9,15 +9,6 @@ import Other from "./other/Other";
 
 class Account extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            role: ''
-        };
-
-    }
-
     componentDidMount = () => {
         fetch('/api/userprofile',
             {
@@ -33,7 +24,6 @@ class Account extends Component {
             })
             .then((json) => {
                     this.setState(json);
-                    console.log(json);
                 }
             );
 
@@ -51,35 +41,18 @@ class Account extends Component {
             })
             .then((json) => {
                     this.setState(json);
-                    console.log(json);
                 }
             );
     }
 
-    /*
-    handleChange = (event) => {
-        this.setState({
-                [event.target.name]: event.target.value
-            }
-        )
-    }
+    constructor(props) {
+        super(props);
 
-    updateProfile = () => {
-        console.log(this.state);
-
-        fetch('/api/userprofile',
-            {
-                method: "PUT",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(this.state)
-            });
+        this.state = {
+            role: ''
+        };
 
     }
-    */
-
 
     render() {
 

@@ -12,7 +12,7 @@ import javax.naming.Name;
 
 @Data
 @ApiModel
-@Entry(objectClasses = {"brfkAGInfo", "inetOrgPerson", "organizationalPerson", "person", "top"})
+@Entry(objectClasses = {"inetOrgPerson", "organizationalPerson", "person", "top"})
 public class UserProfile {
 
     @ApiModelProperty(value = "DN of the client. This is automatically set.")

@@ -80,30 +80,6 @@ class Other extends Component {
             );
     }
 
-    /*
-    handleChange = (event) => {
-        this.setState({
-                [event.target.name]: event.target.value
-            }
-        )
-    }
-
-    updateProfile = () => {
-        console.log(this.state);
-
-        fetch('/api/userprofile',
-            {
-                method: "PUT",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(this.state)
-            });
-
-    }
-*/
-
     render() {
         const {classes} = this.props;
 

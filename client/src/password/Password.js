@@ -18,7 +18,6 @@ import Snackbar from 'material-ui/Snackbar';
 import CloseIcon from 'material-ui-icons/Close';
 import 'whatwg-fetch'
 import {CircularProgress} from 'material-ui/Progress';
-import ReactQueryParams from 'react-query-params';
 
 
 const styles = theme => ({
@@ -45,30 +44,7 @@ const styles = theme => ({
     }
 });
 
-class Password extends ReactQueryParams {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            newPasswordValid: true,
-            repeatPasswordValid: true,
-            newPassword: '',
-            repeatPassword: '',
-            expanded: false,
-            showNewPassword: false,
-            showRepeatPassword: false,
-            user: {},
-            updateStatus: '',
-            passwordUpdateNotify: false,
-            showProgress: false,
-            redirect: ''
-        };
-
-        this.handleClickShowNewPassword = this.handleClickShowNewPassword.bind(this);
-        this.handleExpandClick = this.handleExpandClick.bind(this);
-        this.isFormValid = this.isFormValid.bind(this);
-    }
+class Password extends React.Component {
 
     onChangeNewPassword = (event) => {
         let password = event.target.value;
@@ -91,12 +67,9 @@ class Password extends ReactQueryParams {
         }
 
     };
-
     isFormValid = () => {
-        console.log("isFormValid");
         return (this.state.newPasswordValid && this.state.newPassword.length > 0 && this.state.repeatPasswordValid && this.state.repeatPassword.length > 0)
     }
-
     onChangeRepeatPassword = event => {
         let password = event.target.value;
         if (password === this.state.newPassword) {
@@ -106,28 +79,18 @@ class Password extends ReactQueryParams {
             });
         }
     }
-
     onDirtyNewPassword = (event) => {
         this.setState({newPasswordValid: false});
     };
-
     onDirtyRepeatPassword = (event) => {
         this.setState({repeatPasswordValid: false});
     };
-    /*
-        handleSubmit() {
-            console.log("Update password");
-        }
-    */
     handleMouseDownPassword = event => {
         event.preventDefault();
     };
-
     handleClickShowNewPassword = () => {
         this.setState({showNewPassword: !this.state.showNewPassword});
-        console.log("showNewPassword");
     };
-
     updatePassword = () => {
         this.setState({showProgress: true});
         let user = this.state.user;
@@ -153,7 +116,6 @@ class Password extends ReactQueryParams {
             .then((json) => {
                     const url = this.queryParams.redirectUrl;
                     let status = json.status;
-                    console.log(url);
                     if (url !== undefined) {
                         this.setState({redirect: url});
                         status = `${status}. Du vil nå bli sendt videre til ${url}`;
@@ -169,17 +131,12 @@ class Password extends ReactQueryParams {
                 });
             });
     };
-
     handleClickShowRepeatPassword = () => {
         this.setState({showRepeatPassword: !this.state.showRepeatPassword});
-        console.log("showRepeatPassword");
     };
-
     handleExpandClick = () => {
         this.setState({expanded: !this.state.expanded});
-        console.log("handleExpandClick");
     };
-
     showPasswordUpdateStatus = (updateStatus) => {
 
         this.setState({
@@ -187,6 +144,43 @@ class Password extends ReactQueryParams {
             passwordUpdateNotify: true,
             showProgress: false
         });
+    }
+    handleRequestClose = (event, reason) => {
+
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        this.setState({passwordUpdateNotify: false});
+
+        if (this.state.redirect !== '') {
+            window.location = this.state.redirect;
+        }
+
+    };
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            newPasswordValid: true,
+            repeatPasswordValid: true,
+            newPassword: '',
+            repeatPassword: '',
+            expanded: false,
+            showNewPassword: false,
+            showRepeatPassword: false,
+            user: {},
+            updateStatus: '',
+            passwordUpdateNotify: false,
+            showProgress: false,
+            redirect: ''
+        };
+
+        this.handleClickShowNewPassword = this.handleClickShowNewPassword.bind(this);
+        this.handleExpandClick = this.handleExpandClick.bind(this);
+        this.isFormValid = this.isFormValid.bind(this);
+
     }
 
     componentDidMount() {
@@ -204,27 +198,25 @@ class Password extends ReactQueryParams {
             })
             .then((json) => {
                     this.setState({user: json});
-                    console.log(json);
                 }
             );
     }
 
-    handleRequestClose = (event, reason) => {
+    getPasswordSubheaderMessage() {
+        let path = this.props.location.pathname;
+        let message = "Her kan du bytte passord.";
 
-        if (reason === 'clickaway') {
-            return;
+        if (path.endsWith('expired')) {
+            message = "Passordet er utløpt. Du må bytte passord nå!";
         }
 
-        this.setState({passwordUpdateNotify: false});
-
-        if (this.state.redirect !== '') {
-            window.location = this.state.redirect;
-        }
-
-    };
+        return message;
+    }
 
     render() {
         const {classes} = this.props;
+
+        this.getPasswordSubheaderMessage();
 
         return (
             <div className={classes.root}>
@@ -238,7 +230,7 @@ class Password extends ReactQueryParams {
                             </Avatar>
                         }
                         title="Passord"
-                        subheader="Her kan man bytte passord"
+                        subheader={this.getPasswordSubheaderMessage()}
                     />
 
                     <CardContent>

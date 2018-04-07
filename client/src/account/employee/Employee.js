@@ -50,6 +50,44 @@ const styles = theme => ({
 
 class Employee extends Component {
 
+    handleRequestClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        this.setState({profileUpdateNofify: false});
+    };
+    handleChange = (event) => {
+        let user = this.state.user;
+        Object.assign(user, {[event.target.name]: event.target.value})
+        this.setState({user: user});
+    };
+    updateProfile = () => {
+        let user = this.state.user;
+        this.setState({showProgress: true});
+        fetch('/api/userprofile',
+            {
+                method: "PUT",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user),
+                credentials: 'same-origin'
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    this.setState({updateStatus: 'Profilen din ble oppdatert.'});
+                }
+                else {
+                    this.setState({updateStatus: 'Et problem oppstod. Profilen din ble IKKE oppdatert.'});
+                }
+                this.setState({profileUpdateNofify: true});
+                this.setState({showProgress: false});
+            });
+
+    };
+
     constructor(props) {
         super(props);
 
@@ -97,49 +135,6 @@ class Employee extends Component {
                 }
             );
     }
-
-    handleRequestClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        this.setState({profileUpdateNofify: false});
-    };
-
-    handleChange = (event) => {
-        let user = this.state.user;
-        Object.assign(user, {[event.target.name]: event.target.value})
-        this.setState({user: user});
-    };
-
-    updateProfile = () => {
-        let user = this.state.user;
-        this.setState({showProgress: true});
-        fetch('/api/userprofile',
-            {
-                method: "PUT",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(user),
-                credentials: 'same-origin'
-            })
-            .then((response) => {
-                console.log(response);
-                if (response.status === 200) {
-                    this.setState({updateStatus: 'Profilen din ble oppdatert.'});
-                }
-                else {
-                    console.log(response);
-                    this.setState({updateStatus: 'Et problem oppstod. Profilen din ble IKKE oppdatert.'});
-                }
-                this.setState({profileUpdateNofify: true});
-                this.setState({showProgress: false});
-            });
-
-    };
-
 
     render() {
         const {classes} = this.props;

@@ -17,6 +17,10 @@ const styles = theme => ({
 
 class Navigation extends React.Component {
 
+    handleChange = (event, value) => {
+        this.setState({value});
+    };
+
     constructor(props) {
         super(props);
 
@@ -24,11 +28,6 @@ class Navigation extends React.Component {
             value: 0
         };
     }
-
-
-    handleChange = (event, value) => {
-        this.setState({value});
-    };
 
     render() {
         const {classes} = this.props;
