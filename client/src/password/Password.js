@@ -180,6 +180,7 @@ class Password extends React.Component {
         this.handleClickShowNewPassword = this.handleClickShowNewPassword.bind(this);
         this.handleExpandClick = this.handleExpandClick.bind(this);
         this.isFormValid = this.isFormValid.bind(this);
+        this.getPasswordSubheaderMessage = this.getPasswordSubheaderMessage().bind(this);
 
     }
 
