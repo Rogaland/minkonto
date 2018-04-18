@@ -203,7 +203,7 @@ class Password extends React.Component {
             );
     }
 
-    getPasswordSubheaderMessage() {
+    getPasswordSubheaderMessage = () => {
         let path = this.props.location.pathname;
         let message = "Her kan du bytte passord.";
 
