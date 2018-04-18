@@ -69,7 +69,8 @@ class Password extends React.Component {
     };
     isFormValid = () => {
         return (this.state.newPasswordValid && this.state.newPassword.length > 0 && this.state.repeatPasswordValid && this.state.repeatPassword.length > 0)
-    }
+    };
+
     onChangeRepeatPassword = event => {
         let password = event.target.value;
         if (password === this.state.newPassword) {
@@ -78,19 +79,23 @@ class Password extends React.Component {
                 repeatPassword: password
             });
         }
-    }
+    };
     onDirtyNewPassword = (event) => {
         this.setState({newPasswordValid: false});
     };
+
     onDirtyRepeatPassword = (event) => {
         this.setState({repeatPasswordValid: false});
     };
+
     handleMouseDownPassword = event => {
         event.preventDefault();
     };
+
     handleClickShowNewPassword = () => {
         this.setState({showNewPassword: !this.state.showNewPassword});
     };
+
     updatePassword = () => {
         this.setState({showProgress: true});
         let user = this.state.user;
@@ -180,7 +185,7 @@ class Password extends React.Component {
         this.handleClickShowNewPassword = this.handleClickShowNewPassword.bind(this);
         this.handleExpandClick = this.handleExpandClick.bind(this);
         this.isFormValid = this.isFormValid.bind(this);
-        this.getPasswordSubheaderMessage = this.getPasswordSubheaderMessage().bind(this);
+        this.getPasswordSubheaderMessage = this.getPasswordSubheaderMessage.bind(this);
 
     }
 
