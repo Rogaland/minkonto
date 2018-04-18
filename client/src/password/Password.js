@@ -186,6 +186,7 @@ class Password extends React.Component {
         this.handleExpandClick = this.handleExpandClick.bind(this);
         this.isFormValid = this.isFormValid.bind(this);
         this.getPasswordSubheaderMessage = this.getPasswordSubheaderMessage.bind(this);
+        this.pathEndsWithExpired = this.pathEndsWithExpired.bind(this);
 
     }
 
@@ -209,15 +210,21 @@ class Password extends React.Component {
     }
 
     getPasswordSubheaderMessage = () => {
-        let path = this.props.location.pathname;
         let message = "Her kan du bytte passord.";
 
-        if (path.endsWith('expired')) {
+        if (this.pathEndsWithExpired()) {
             message = "Passordet er utløpt. Du må bytte passord nå!";
         }
 
         return message;
-    }
+    };
+
+    pathEndsWithExpired = () => {
+        let path = this.props.location.pathname;
+        const EXPIRED = 'expired';
+
+        return path.indexOf(EXPIRED, path.length - EXPIRED.length) !== -1;
+    };
 
     render() {
         const {classes} = this.props;
