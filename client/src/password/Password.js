@@ -18,6 +18,7 @@ import Snackbar from 'material-ui/Snackbar';
 import CloseIcon from 'material-ui-icons/Close';
 import 'whatwg-fetch'
 import {CircularProgress} from 'material-ui/Progress';
+import qs from 'query-string';
 
 
 const styles = theme => ({
@@ -100,6 +101,8 @@ class Password extends React.Component {
         this.setState({showProgress: true});
         let user = this.state.user;
         user.password = this.state.newPassword;
+        let queryParams = qs.parse(this.props.location.search);
+
         fetch('/api/password',
             {
                 method: "PUT",
@@ -119,7 +122,7 @@ class Password extends React.Component {
                 throw error;
             })
             .then((json) => {
-                    const url = this.queryParams.redirectUrl;
+                    const url = queryParams.redirectUrl;
                     let status = json.status;
                     if (url !== undefined) {
                         this.setState({redirect: url});
@@ -187,6 +190,7 @@ class Password extends React.Component {
         this.isFormValid = this.isFormValid.bind(this);
         this.getPasswordSubheaderMessage = this.getPasswordSubheaderMessage.bind(this);
         this.pathEndsWithExpired = this.pathEndsWithExpired.bind(this);
+        this.updatePassword = this.updatePassword.bind(this);
 
     }
 
