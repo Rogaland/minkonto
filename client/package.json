@@ -18,7 +18,6 @@
     "react-dom": "^16.1.1",
     "react-form-validator-core": "^0.1.1",
     "react-material-ui-form-validator": "^2.0.0-beta.2",
-    "react-query-params": "^1.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "typeface-roboto": "^0.0.45",
